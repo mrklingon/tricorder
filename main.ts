@@ -4,6 +4,12 @@ input.onButtonPressed(Button.A, function () {
         Mode = 1
     }
 })
+input.onButtonPressed(Button.AB, function () {
+    graph += 1
+    if (graph == 2) {
+        graph = 0
+    }
+})
 input.onButtonPressed(Button.B, function () {
     Mode = 9
     ship = images.createBigImage(`
@@ -46,11 +52,13 @@ let nlist: string[] = []
 let kvoc = 0
 let lang = 0
 let Mode = 0
+let graph = 0
+let mvoc = 0
 basic.showIcon(IconNames.Heart)
 basic.showIcon(IconNames.SmallHeart)
 basic.showIcon(IconNames.Heart)
 basic.showString("Tricorder!")
-let mvoc = 0
+graph = 0
 Mode = 1
 lang = 2
 kvoc = 0
@@ -63,28 +71,56 @@ basic.forever(function () {
         basic.showString("compass")
         while (1 == Mode) {
             direction = Math.round(input.compassHeading() / 90)
-            basic.showString("" + (direction))
+            if (graph == 1) {
+                led.plotBarGraph(
+                input.compassHeading(),
+                375
+                )
+            } else {
+                basic.showString("" + (direction))
+            }
         }
     }
     while (2 == Mode) {
         basic.showString("light")
         while (2 == Mode) {
             light2 = input.lightLevel()
-            basic.showString("" + (light2))
+            if (graph == 1) {
+                led.plotBarGraph(
+                light2,
+                255
+                )
+            } else {
+                basic.showString("" + (light2))
+            }
         }
     }
     while (3 == Mode) {
         basic.showString("temp")
         while (3 == Mode) {
             temp = input.temperature() * 9 / 5 + 32
-            basic.showString("" + (temp))
+            if (graph == 1) {
+                led.plotBarGraph(
+                temp,
+                120
+                )
+            } else {
+                basic.showString("" + (temp))
+            }
         }
     }
     while (4 == Mode) {
         basic.showString("gees")
         while (4 == Mode) {
-            gees = input.acceleration(Dimension.Strength) / 1000
-            basic.showString("" + (gees))
+            gees = 0 / 1000
+            if (graph == 1) {
+                led.plotBarGraph(
+                input.acceleration(Dimension.Strength),
+                1500
+                )
+            } else {
+                basic.showString("" + (gees))
+            }
         }
     }
     while (5 == Mode) {
