@@ -5,10 +5,10 @@ input.onButtonPressed(Button.A, function () {
     }
 })
 input.onButtonPressed(Button.AB, function () {
-    graph += 1
-    if (graph == 2) {
+    if (graph == 1) {
         graph = 0
     }
+    graph += 1
 })
 input.onButtonPressed(Button.B, function () {
     Mode = 9
@@ -62,10 +62,66 @@ graph = 0
 Mode = 1
 lang = 2
 kvoc = 0
-nlist = ["yawne", "kaltxi", "tawsip", "'eylan", "kelku", "safla", "tiyora'", "'itan", "'ite", "'ipu", "uvan", "syure", "yom"]
-mlist = ["cyare", "Sucuy'gar", "me'sen", "burc'ya", "yaim", "bralov", "parjai", "ad", "ad", "nuh'la", "geroya", "kai'tome", "epar"]
-klist = ["bang", "nuqneH", "'ejDo'", "jup ", "juH", "Qapla'", "yay", "puqloD", "puqbe'", "tlhaq", "Quj", "Soj", "Sop"]
-elist = ["beloved", "hello", "starship", "friend", "home", "success", "victory", "son", "daughter", "funny", "game", "food", "eat"]
+nlist = [
+"yawne",
+"kaltxi",
+"tawsip",
+"'eylan",
+"kelku",
+"safla",
+"tiyora'",
+"'itan",
+"'ite",
+"'ipu",
+"uvan",
+"syure",
+"yom"
+]
+mlist = [
+"cyare",
+"Sucuy'gar",
+"me'sen",
+"burc'ya",
+"yaim",
+"bralov",
+"parjai",
+"ad",
+"ad",
+"nuh'la",
+"geroya",
+"kai'tome",
+"epar"
+]
+klist = [
+"bang",
+"nuqneH",
+"'ejDo'",
+"jup ",
+"juH",
+"Qapla'",
+"yay",
+"puqloD",
+"puqbe'",
+"tlhaq",
+"Quj",
+"Soj",
+"Sop"
+]
+elist = [
+"beloved",
+"hello",
+"starship",
+"friend",
+"home",
+"success",
+"victory",
+"son",
+"daughter",
+"funny",
+"game",
+"food",
+"eat"
+]
 basic.forever(function () {
     while (1 == Mode) {
         basic.showString("compass")
