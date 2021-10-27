@@ -7,8 +7,9 @@ input.onButtonPressed(Button.A, function () {
 input.onButtonPressed(Button.AB, function () {
     if (graph == 1) {
         graph = 0
+    } else {
+        graph = 1
     }
-    graph += 1
 })
 input.onButtonPressed(Button.B, function () {
     Mode = 9
